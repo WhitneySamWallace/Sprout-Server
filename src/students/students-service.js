@@ -1,5 +1,10 @@
-const StudentService = {
+const StudentsService = {
+
+  getAllStudents(db) {
+    return db('sprout_students')
+      .select('*');
+  }
   
 };
 
-module.exports = StudentService;
+module.exports = StudentsService;

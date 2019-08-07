@@ -1,6 +1,7 @@
 /*eslint eqeqeq: 1*/
 const express = require('express');
 const logger = require('../logger');
+const StudentsService = require('./students-service');
 
 const studentRouter = express.Router();
 const jsonBodyParser = express.json();
@@ -22,13 +23,17 @@ const students = [{
 studentRouter
   .route('/')
   // GET '/'
-  .get((req, res) => {
-    res.json(students);
+  .get((req, res, next) => {
+    StudentsService.getAllStudents(req.app.get('db'))
+      .then(students => {
+        res.json(students);
+      })
+      .catch(err => next(err));
   })
   // POST '/'
   .post(jsonBodyParser, (req, res) => {
-    const { name } = req.body; // needs jsonBodyParser or returns undefined
-
+    const { name } = req.body; 
+    
     if (!name) {
       logger.error('Name is required');
       return res.status(400).send('Invalid data');
