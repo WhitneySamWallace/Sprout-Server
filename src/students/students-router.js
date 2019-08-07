@@ -1,3 +1,4 @@
+/*eslint eqeqeq: 1*/
 const express = require('express');
 const logger = require('../logger');
 
@@ -74,10 +75,10 @@ studentRouter
     const student = students.find(student => student.id == studentId);
 
     //if goal is not a string or is an empty string, keep current goal value
-    const goalContent = (typeof(goal) !== 'string' || goal === '' ? student.goal : goal);
+    const goalContent = (typeof goal !== 'string' || goal === '' ? student.goal : goal);
     
     //if priority is not a string or is an empty string, keep current priority value
-    const priorityContent = (typeof(priority) !== 'string' || priority === '' ? student.priority : priority); 
+    const priorityContent = (typeof priority !== 'string' || priority === '' ? student.priority : priority); 
 
     //updated student
     const updatedStudent = {
@@ -92,7 +93,7 @@ studentRouter
     students[updatedStudentIndex].goal = updatedStudent.goal;
     students[updatedStudentIndex].priority = updatedStudent.priority;
     
-    return res.status(201).json(updatedStudent); 
+    return res.status(200).json(updatedStudent); 
   });
 
 
