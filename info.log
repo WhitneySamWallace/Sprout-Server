@@ -9,3 +9,6 @@
 {"message":"Unathorized request to path: /","level":"error"}
 {"message":"Student with id 1 is not found.","level":"error"}
 {"message":"Student with id 1 was deleted.","level":"info"}
+{"message":"Student with id: 11 created.","level":"info"}
+{"message":"Student with id: 11 was updated.","level":"info"}
+{"message":"Student with id: 11 was deleted.","level":"info"}

@@ -6,20 +6,6 @@ const StudentsService = require('./students-service');
 const studentRouter = express.Router();
 const jsonBodyParser = express.json();
 
-// dummy data
-const students = [{
-  id: 0,
-  name: 'Annie',
-  goal: 'Write an opening paragraph',
-  priority: 'low',
-},{
-  id: 1,
-  name: 'Dwight',
-  goal: 'Write an opening paragraph',
-  priority: 'low',
-}
-];
-
 studentRouter
   .route('/')
   // GET '/'
@@ -31,7 +17,7 @@ studentRouter
       .catch(err => next(err));
   })
   // POST '/'
-  .post(jsonBodyParser, (req, res) => {
+  .post(jsonBodyParser, (req, res, next) => {
     const { name } = req.body; 
     
     if (!name) {
@@ -39,67 +25,55 @@ studentRouter
       return res.status(400).send('Invalid data');
     }
 
-    const student = { //just name for right now
-      name
+    const student = { 
+      name,
+      goal: '',
+      priority: '',
     };
 
-    students.push(student);
-
-    logger.info('Student created');
-    res.status(201).json(student);
+    StudentsService.addStudent(req.app.get('db'), student)
+      .then(student => {
+        logger.info(`Student with id: ${student.id} created.`);
+        res.status(201)
+          .json(student);
+      })
+      .catch(err => next(err));
   });
 
 studentRouter
   .route('/:studentId')
   // DELETE '/ID'
-  .delete((req, res) => {
+  .delete((req, res, next) => {
     //delete student
     const { studentId } = req.params;
 
-    const studentIndex = students.findIndex(student => student.id == studentId);
-
-    // if no ID is found, findIndex will return -1
-    if (studentIndex === -1) {
-      logger.error(`Student with id: ${studentId} is not found.`);
-      return res.status(404).send('Not Found');
-    }
-
-    students.splice(studentIndex, 1);
-
-    logger.info(`Student with id: ${studentId} was deleted.`);
-
-    return res.status(204).end();
+    StudentsService.deleteStudent(req.app.get('db'), studentId)
+      .then(() => {
+        logger.info(`Student with id: ${studentId} was deleted.`);
+        res.status(204).end();
+      })
+      .catch(err => next(err));
   })
   // PATCH '/ID'
-  .patch(jsonBodyParser, (req, res) => {
+  .patch(jsonBodyParser, (req, res, next) => {
     //update student
     const { studentId } = req.params;
     const { goal, priority } = req.body;
 
-    //find student and set update values
-    const student = students.find(student => student.id == studentId);
-
-    //if goal is not a string or is an empty string, keep current goal value
-    const goalContent = (typeof goal !== 'string' || goal === '' ? student.goal : goal);
-    
-    //if priority is not a string or is an empty string, keep current priority value
-    const priorityContent = (typeof priority !== 'string' || priority === '' ? student.priority : priority); 
-
     //updated student
     const updatedStudent = {
-      id: student.id,
-      name: student.name,
-      goal: goalContent,
-      priority: priorityContent,
+      id: studentId,
+      goal,
+      priority,
     };
+    console.log(updatedStudent);
 
-    //update data
-    const updatedStudentIndex = students.findIndex(student => student.id == studentId);
-    students[updatedStudentIndex].goal = updatedStudent.goal;
-    students[updatedStudentIndex].priority = updatedStudent.priority;
-    
-    return res.status(200).json(updatedStudent); 
+    StudentsService.updateStudent(req.app.get('db'), studentId, updatedStudent)
+      .then(student => {
+        logger.info(`Student with id: ${studentId} was updated.`);
+        res.status(200).json(student);
+      })
+      .catch(err => next(err));
   });
-
 
 module.exports = studentRouter;
