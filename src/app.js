@@ -5,6 +5,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const { NODE_ENV } = require('./config');
 const studentsRouter = require('./students/students-router');
+const authRouter = require('./auth/auth-router');
 const logger = require('./logger');
 
 const app = express();
@@ -29,6 +30,7 @@ app.use(function validateBearerToken(req, res, next) {
 });
 
 app.use('/api/students', studentsRouter);
+app.use('/api/auth', authRouter);
 
 //if 4 params, knows error is first; 2 or 3 params, knows req, res (next), need to have next despiten not using it (to equal 4)
 app.use(function errorHandler(error, req, res, next) { // eslint-disable-line no-unused-vars

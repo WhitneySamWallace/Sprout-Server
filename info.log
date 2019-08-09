@@ -53,3 +53,4 @@
 {"message":"Student with id: 22 created.","level":"info"}
 {"message":"Student with id: 22 was deleted.","level":"info"}
 {"message":"Student with id: 10 was updated.","level":"info"}
+{"message":"Unathorized request to path: /api/auth/login","level":"error"}
