@@ -42,7 +42,7 @@ studentRouter
 
 studentRouter
   .route('/:studentId')
-  // DELETE '/ID'
+  // DELETE '/'
   .delete((req, res, next) => {
     //delete student
     const { studentId } = req.params;
@@ -66,12 +66,12 @@ studentRouter
       goal,
       priority,
     };
-    console.log(updatedStudent);
+    console.log('Updated Student in API: ', updatedStudent);
 
     StudentsService.updateStudent(req.app.get('db'), studentId, updatedStudent)
-      .then(student => {
+      .then(() => {
         logger.info(`Student with id: ${studentId} was updated.`);
-        res.status(200).json(student);
+        res.status(204).end();
       })
       .catch(err => next(err));
   });

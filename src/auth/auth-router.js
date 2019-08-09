@@ -1,4 +1,4 @@
-/*eslint eqeqeq: 1*/
+/*eslint eqeqeq: 0*/
 const express = require('express');
 
 const authRouter = express.Router();
