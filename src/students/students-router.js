@@ -1,5 +1,6 @@
 /*eslint eqeqeq: 1*/
 const express = require('express');
+const  {requireAuth} = require('../middleware/jwt-auth');
 const logger = require('../logger');
 const StudentsService = require('./students-service');
 
@@ -8,6 +9,7 @@ const jsonBodyParser = express.json();
 
 studentRouter
   .route('/')
+  .all(requireAuth)
   // GET '/'
   .get((req, res, next) => {
     StudentsService.getAllStudents(req.app.get('db'))
@@ -42,6 +44,7 @@ studentRouter
 
 studentRouter
   .route('/:studentId')
+  .all(requireAuth)
   // DELETE '/'
   .delete((req, res, next) => {
     //delete student
@@ -66,7 +69,6 @@ studentRouter
       goal,
       priority,
     };
-    console.log('Updated Student in API: ', updatedStudent);
 
     StudentsService.updateStudent(req.app.get('db'), studentId, updatedStudent)
       .then(() => {

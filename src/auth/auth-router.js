@@ -33,31 +33,7 @@ authRouter
             res.send({
               authToken: AuthService.createJwt(sub, payload),
             });
-          })
-          .catch(err => next(err));
-      });
-  });
-
-authRouter
-//POST 'API/AUTH/USERS'
-  .route('/users')
-  .post(jsonBodyParser, (req, res, next) => {
-    console.log('Getting here, and data is: ', req.body);
-    const { username, password, email } = req.body;
-    const newUser = { username, password, email, date_created: 'now()' };
-
-    const requiredKeys = {username, password, email};
-    for (const [key, value] of Object.entries(requiredKeys)) {
-      if (value == null) {
-        return res.status(400).json({ error: `Missing ${key} in request body`});
-      }
-    }
-
-    //Check to see if username already exists <----------------------------------------- TODO!
-
-    return AuthService.addUserToDatabase(req.app.get('db'), newUser)
-      .then(user => {
-        return res.status(201).json({message: `The user ${user[0].username} has been created.`});
+          });
       })
       .catch(err => next(err));
   });
@@ -68,13 +44,9 @@ authRouter
   .post(requireAuth, (req, res) => {
     const sub = req.user.username;
     const payload = { user_id: req.user.id };
-
     res.send({
-      authToken: AuthService.createJwt(sub, payload)
+      authToken: AuthService.createJwt(sub, payload),
     });
   });
-
-
-
 
 module.exports = authRouter;
