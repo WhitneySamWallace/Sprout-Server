@@ -4,3 +4,22 @@
 {"message":"Unathorized request to path: /api/users >> AUTHTOKEN","level":"error"}
 {"message":"Unathorized request to path: /api/users","level":"error"}
 {"message":"Unathorized request to path: /api/users","level":"error"}
+{"message":"Student with id: 1 was updated.","level":"info"}
+{"message":"Student with id: 2 was updated.","level":"info"}
+{"message":"Student with id: 8 was updated.","level":"info"}
+{"message":"Student with id: 1 was updated.","level":"info"}
+{"message":"Student with id: 6 was updated.","level":"info"}
+{"message":"Student with id: 9 was updated.","level":"info"}
+{"message":"Student with id: 6 was updated.","level":"info"}
+{"message":"Student with id: 2 was updated.","level":"info"}
+{"message":"Student with id: 8 was updated.","level":"info"}
+{"message":"Student with id: 1 was updated.","level":"info"}
+{"message":"Student with id: 2 was updated.","level":"info"}
+{"message":"Student with id: 11 created.","level":"info"}
+{"message":"Student with id: 9 was updated.","level":"info"}
+{"message":"Student with id: 6 was updated.","level":"info"}
+{"message":"Student with id: 12 created.","level":"info"}
+{"message":"Student with id: 3 was updated.","level":"info"}
+{"message":"Student with id: 10 was updated.","level":"info"}
+{"message":"Student with id: 12 was updated.","level":"info"}
+{"message":"Student with id: 12 was deleted.","level":"info"}
