@@ -54,11 +54,6 @@ studentRouter
     //delete student
     const { studentId } = req.params;
 
-    if (!name) {
-      logger.error('studentId is required');
-      return res.status(400).send('Invalid data');
-    }
-
     StudentsService.deleteStudent(req.app.get('db'), studentId)
       .then(() => {
         logger.info(`Student with id: ${studentId} was deleted.`);

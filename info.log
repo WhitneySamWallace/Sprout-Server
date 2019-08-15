@@ -38,3 +38,25 @@
 {"message":"Student with id: 13 created.","level":"info"}
 {"message":"studentId, goal, and priority are required","level":"error"}
 {"message":"Student with id: 11 created.","level":"info"}
+{"message":"Name is required","level":"error"}
+{"message":"Name is required","level":"error"}
+{"message":"Student with id: 1 created.","level":"info"}
+{"message":"Student with id: 1 created.","level":"info"}
+{"message":"Student with id: 1 created.","level":"info"}
+{"message":"Student with id: 1 created.","level":"info"}
+{"message":"Student with id: 1 created.","level":"info"}
+{"message":"Student with id: 1 created.","level":"info"}
+{"message":"Student with id: 1 created.","level":"info"}
+{"message":"Student with id: 1 created.","level":"info"}
+{"message":"studentId, goal, and priority are required","level":"error"}
+{"message":"Student with id: 1 created.","level":"info"}
+{"message":"Student with id: 1 created.","level":"info"}
+{"message":"Student with id: 1 created.","level":"info"}
+{"message":"Student with id: 1 created.","level":"info"}
+{"message":"Student with id: 1 created.","level":"info"}
+{"message":"Student with id: 1 created.","level":"info"}
+{"message":"Student with id: 1 created.","level":"info"}
+{"message":"Student with id: 1 created.","level":"info"}
+{"message":"Student with id: 1 created.","level":"info"}
+{"message":"Student with id: 1 created.","level":"info"}
+{"message":"Student with id: 1 created.","level":"info"}
