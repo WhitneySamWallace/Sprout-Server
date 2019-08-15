@@ -23,3 +23,18 @@
 {"message":"Student with id: 10 was updated.","level":"info"}
 {"message":"Student with id: 12 was updated.","level":"info"}
 {"message":"Student with id: 12 was deleted.","level":"info"}
+{"message":"studentId, goal, and priority are required","level":"error"}
+{"message":"studentId, goal, and priority are required","level":"error"}
+{"message":"studentId, goal, and priority are required","level":"error"}
+{"message":"studentId, goal, and priority are required","level":"error"}
+{"message":"studentId, goal, and priority are required","level":"error"}
+{"message":"studentId, goal, and priority are required","level":"error"}
+{"message":"studentId, goal, and priority are required","level":"error"}
+{"message":"studentId, goal, and priority are required","level":"error"}
+{"message":"studentId, goal, and priority are required","level":"error"}
+{"message":"studentId, goal, and priority are required","level":"error"}
+{"message":"studentId, goal, and priority are required","level":"error"}
+{"message":"Student with id: 4 was updated.","level":"info"}
+{"message":"Student with id: 13 created.","level":"info"}
+{"message":"studentId, goal, and priority are required","level":"error"}
+{"message":"Student with id: 11 created.","level":"info"}

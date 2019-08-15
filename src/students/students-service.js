@@ -1,8 +1,9 @@
 const StudentsService = {
 
-  getAllStudents(db) {
+  getAllStudents(db, user_id) {
     return db('sprout_students')
-      .select('*');
+      .select('*')
+      .where( 'sprout_user_id', user_id);
   },
 
   addStudent(db, student) {

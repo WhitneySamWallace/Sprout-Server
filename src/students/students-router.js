@@ -12,15 +12,18 @@ studentRouter
   .all(requireAuth)
   // GET '/'
   .get((req, res, next) => {
-    StudentsService.getAllStudents(req.app.get('db'))
+    console.log(req.user);
+    const user_id = req.user.id;
+    StudentsService.getAllStudents(req.app.get('db'), user_id)
       .then(students => {
-        res.json(students);
+        res.status(200).json(students);
       })
       .catch(err => next(err));
   })
   // POST '/'
   .post(jsonBodyParser, (req, res, next) => {
-    const { name } = req.body; 
+    const { name } = req.body;
+    const user_id = req.user.id; 
     
     if (!name) {
       logger.error('Name is required');
@@ -28,9 +31,10 @@ studentRouter
     }
 
     const student = { 
-      name,
+      name: name,
       goal: '',
       priority: '',
+      sprout_user_id: user_id,
     };
 
     StudentsService.addStudent(req.app.get('db'), student)
@@ -50,6 +54,11 @@ studentRouter
     //delete student
     const { studentId } = req.params;
 
+    if (!name) {
+      logger.error('studentId is required');
+      return res.status(400).send('Invalid data');
+    }
+
     StudentsService.deleteStudent(req.app.get('db'), studentId)
       .then(() => {
         logger.info(`Student with id: ${studentId} was deleted.`);
@@ -62,6 +71,11 @@ studentRouter
     //update student
     const { studentId } = req.params;
     const { goal, priority } = req.body;
+
+    if (!studentId || !goal || !priority) {
+      logger.error('studentId, goal, and priority are required');
+      return res.status(400).send('Invalid data');
+    }
 
     //updated student
     const updatedStudent = {
