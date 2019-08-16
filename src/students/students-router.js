@@ -15,7 +15,13 @@ studentRouter
     const user_id = req.user.id;
     StudentsService.getAllStudents(req.app.get('db'), user_id)
       .then(students => {
-        res.status(200).json(students);
+        console.log(students);
+        if (students) {
+          return res.status(200).json(students);
+        } else {
+          return res.status(200).json({});
+        }
+        
       })
       .catch(err => next(err));
   })
