@@ -21,13 +21,11 @@ authRouter
     AuthService.getUserWithUserName(req.app.get('db'), loginUser.username)
       .then(dbUser => {
         if (!dbUser) {
-          console.log('User not found');
           return res.status(400).json({ error: 'Incorrect username or password'});
         }
         return AuthService.comparePasswords(loginUser.password, dbUser.password)
           .then(compareMatch => {
             if (!compareMatch) {
-              console.log('Password does not match');
               return res.status(400).json({ error: 'Incorrect username or password' });
             }
             const sub = dbUser.username;

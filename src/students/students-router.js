@@ -12,7 +12,6 @@ studentRouter
   .all(requireAuth)
   // GET '/'
   .get((req, res, next) => {
-    console.log(req.user);
     const user_id = req.user.id;
     StudentsService.getAllStudents(req.app.get('db'), user_id)
       .then(students => {

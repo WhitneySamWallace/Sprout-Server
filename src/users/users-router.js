@@ -11,7 +11,6 @@ usersRouter
   .route('/')
   .post(jsonBodyParser, (req, res, next) => {
     const { username, password, email } = req.body;
-    console.log('POST req triggered');
 
     const requiredKeys = {username, password, email};
     for (const [key, value] of Object.entries(requiredKeys)) {
@@ -22,14 +21,12 @@ usersRouter
 
     const passwordError = UsersService.validatePassword(password);
     if (passwordError) {
-      console.log('Invalid password');
       return res.status(400).json({ error: passwordError });
     }
 
     UsersService.hasUserWithUserName(req.app.get('db'), username)
       .then(hasUserWithUserName => {
         if (hasUserWithUserName) {
-          console.log('Username already exists');
           return res.status(400).json({ error: 'Username already exists'});
         }
 
@@ -39,7 +36,6 @@ usersRouter
 
             return UsersService.addUserToDatabase(req.app.get('db'), newUser)
               .then(user => {
-                console.log(user);
                 return res.status(201)
                   .location(path.posix.join(req.originalUrl, `/${user.id}`))
                   .json(UsersService.serializeUser(user));
