@@ -1,2 +1,2 @@
-release: npm install && npm run migrate
+release: npm run deploy
 web: node src/server.js

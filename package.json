@@ -9,7 +9,7 @@
     "migrate": "postgrator --config postgrator-config.js",
     "migrateprod": "postgrator --config postgrator-production-config.js",
     "start": "node src/server.js",
-    "predeploy": "npm audit",
+    "predeploy": "npm audit && npm run migrateprod",
     "deploy": "git push heroku master"
   },
   "keywords": [],
