@@ -60,3 +60,13 @@
 {"message":"Student with id: 1 created.","level":"info"}
 {"message":"Student with id: 1 created.","level":"info"}
 {"message":"Student with id: 1 created.","level":"info"}
+{"message":"Student with id: 8 was updated.","level":"info"}
+{"message":"Student with id: 12 created.","level":"info"}
+{"message":"Student with id: 13 created.","level":"info"}
+{"message":"Student with id: 13 was deleted.","level":"info"}
+{"message":"Student with id: 1 was updated.","level":"info"}
+{"message":"Student with id: 6 was updated.","level":"info"}
+{"message":"Student with id: 5 was updated.","level":"info"}
+{"message":"Student with id: 7 was updated.","level":"info"}
+{"message":"Student with id: 8 was updated.","level":"info"}
+{"message":"Student with id: 2 was updated.","level":"info"}
