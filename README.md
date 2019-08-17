@@ -73,11 +73,43 @@ See what Sprout has to offer by using these login credentials:
 ![](./Screenshots/Main14.png)
 
 ## API Documentation:
+`/api/students`
+  - GET -> Gets all students that belong to specific user id (Requires Auth)
+  - POST -> Inserts new student into database (Requires Auth)
+
+`/api/students/:studentId`
+  - DELETE -> Removes student from database (Requires Auth)
+  - PATCH -> Updates student in database (Requires Auth)
+
+`/api/auth/login`
+  - POST -> Compares to users in database, if matching creates and sends JWT token
+
+`/api/auth/refresh`
+  - POST -> Refreshes JWT token
+
+`/api/users`
+  - POST -> Adds user to database
+
 
 ## Technology/Frameworks Used:
+- HTML
+- CSS
+- JavaScript
+- React
+- Jest
 - Express
+- Node.js
 - PostgreSQL
-- React using [Create React App](https://github.com/facebook/create-react-app).
+- Knex
+- Mocha, Chai & Supertest
+
+- Zeit Now
+- Heroku
+- Git
+- Github
+- Visual Studio Code
+- DBeaver
+- Postman
 
 ## Installation:
 ### [Sprout Server](https://github.com/WhitneySamWallace/Sprout-Server)
