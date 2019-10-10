@@ -1,6 +1,6 @@
 # Sprout
 
-GitHub Repo: [Sprout Client](https://github.com/WhitneySamWallace/Sprout-Client/blob/master/README.md)
+GitHub Repo: [Sprout Client](https://github.com/WhitneySamWallace/Sprout-Client)
 
 ## Motivation:
 Every day teachers are striving to give their students specific, timely, and goal-oriented feedback to adhere to teaching best practices and nurture the understanding of their students.  
