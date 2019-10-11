@@ -134,4 +134,4 @@ See what Sprout has to offer by using these login credentials:
 
 ## Credits:
 Created by Whitney Wallace 
-- [Portfolio](https://thinkful-ei-emu.github.io/portfolio-whitney/)
+- [Portfolio](https://whitneysamwallace.now.sh/)
